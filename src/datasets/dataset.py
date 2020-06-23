@@ -78,10 +78,10 @@ class CustomDataset(data.Dataset):
         h, w, _ = img.shape
         # This way may contain more background that affect the learning of the model
         # size = min(h, w)
-        
+
         # contain less background make the dataset cleaner
-        size = 128
-        
+        size = min(128, h, w)
+
         # crop around the center point
         cropped = img[(h - size) // 2:(h - size) // 2 + size, (w - size) // 2:(w - size) // 2 + size, :]
         # the resized size should correspond with the network

@@ -22,16 +22,21 @@ from src.models import VAE
 from src.datasets import CustomDataset
 
 
-# Reconstruction + KL divergence losses summed over all elements and batch
 def loss_function(recon_x, x, mu, logvar):
+    """
+    Reconstruction + KL divergence losses summed over all elements and batch
+    For algorithms here, users can refer to Appendix B on VAE paper or Section 2.2 on my report
+    :param recon_x: (tensor) reconstructed data
+    :param x: (tensor) original data
+    :param mu: (tensor) variational mean
+    :param logvar: (tensor) log variance
+    :return:
+    """
+    # Using BCELoss as Pytorch recommended in its documentation
     BCE = F.binary_cross_entropy(recon_x, x.view(-1, img_size**2 * channel), reduction='sum')
 
-    # see Appendix B from VAE paper:
-    # Kingma and Welling. Auto-Encoding Variational Bayes. ICLR, 2014
-    # https://arxiv.org/abs/1312.6114
     # 0.5 * sum(1 + log(sigma^2) - mu^2 - sigma^2)
     KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
-
     return BCE + KLD
 
 

@@ -15,9 +15,9 @@ python train.py
 
 
 
-### Link
+### Links
 
-+ Samples on MNIST: 
-+ Samples on CelebA: 
-+ Weights of VAE: 
-+ Download CelebA: https://drive.google.com/file/d/0B7EVK8r0v71pZjFTYXZWM3FlRnM/view?usp=sharing
++ Samples: http://gofile.me/59EUa/4mdbHj2xZ
++ Weights: http://gofile.me/59EUa/7TqsybE0t
++ Cartoon datasets: http://gofile.me/59EUa/bdOEDlEj7
++ CelebA: http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html
